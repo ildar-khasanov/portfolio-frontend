@@ -1,0 +1,31 @@
+.login__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 500px;
+}
+.login__input {
+    margin-bottom: 30px;
+}
+.login__feild {
+    color: black;
+    background-color: white;
+    margin-left: 15px;
+    padding: 2px;
+}
+
+.login__title {
+    font-size: 30px;
+}
+
+.login__btn {
+    padding: 15px 2px;
+    border: 1px solid white;
+    transition: background 0.1s linear;
+}
+
+/* .login__btn:hover {
+    padding: 15px 2px;
+    border: 1px solid white;
+    background: rgb(3, 3, 115);
+} */

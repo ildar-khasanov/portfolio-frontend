@@ -1,0 +1,282 @@
+/* Header */
+.test {
+    width: 100%;
+    background: var(--header-bg);
+}
+.header {
+    padding: 40px 0;
+    min-height: 695px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+    /* background-color: var(--header-bg);
+    background-image: url("./../../img/header-bg.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center center; */
+
+    color: var(--header-text);
+    /* text-align: center; */
+}
+
+.header__wrapper {
+    flex: 1 0 auto;
+    padding: 0 15px;
+    max-width: 660px;
+}
+
+.header__title {
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.header__title strong {
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.header__title em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.header__text {
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.333;
+}
+
+.header__text p + p {
+    margin-top: 0.5em;
+}
+
+.home-img-main {
+    padding: 0 85px;
+}
+
+.home-img {
+    width: 410px;
+    height: 410px;
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+
+    /* animation-delay: 2.1s, 3.1s; */
+    /* background: red; */
+}
+
+.home-img .glowing-circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background: yellowgreen; */
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-img .glowing-circle:after {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: #171718;
+    border-radius: 50%;
+}
+
+.glowing-circle span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#f06, #3cf);
+    border-radius: 50%;
+    animation: circleRotate 5s linear infinite;
+}
+
+.glowing-circle span:nth-child(1) {
+    filter: blur(10px);
+}
+
+.glowing-circle .image {
+    position: relative;
+    width: 380px;
+    height: 380px;
+
+    border-radius: 50%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.image img {
+    max-width: 350px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-24px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes circleRotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 1192px) {
+    .header {
+        justify-content: center;
+    }
+    .header__wrapper {
+        text-align: center;
+        margin-bottom: 100px;
+    }
+}
+@media (max-width: 670px) {
+    .header__wrapper {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 620px) {
+    .header__wrapper {
+        margin-bottom: 68px;
+    }
+
+    .header__title {
+        font-size: 30px;
+    }
+    .header__title strong {
+        font-size: 50px;
+    }
+    .home-img {
+        width: 350px;
+        height: 350px;
+    }
+
+    .glowing-circle .image {
+        width: 320px;
+        height: 320px;
+    }
+
+    .home-img .glowing-circle:after {
+        width: 320px;
+        height: 320px;
+    }
+
+    .image img {
+        max-width: 174px;
+    }
+}
+@media (max-width: 520px) {
+    .header {
+        padding: 30px 0;
+        min-height: 0;
+    }
+    .header__wrapper {
+        margin-bottom: 70px;
+    }
+
+    .header__title {
+        font-size: 25px;
+    }
+    .header__title strong {
+        font-size: 40px;
+    }
+
+    .home-img-main {
+        padding: 0;
+    }
+
+    .home-img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .glowing-circle .image {
+        width: 270px;
+        height: 270px;
+    }
+
+    .home-img .glowing-circle:after {
+        width: 270px;
+        height: 270px;
+    }
+
+    .image img {
+        max-width: 143px;
+    }
+}
+@media (max-width: 440px) {
+    .header {
+        padding: 30px 0;
+        min-height: 0;
+    }
+    .header__wrapper {
+        margin-bottom: 70px;
+    }
+
+    .header__title {
+        font-size: 25px;
+    }
+    .header__title strong {
+        font-size: 40px;
+    }
+
+    .home-img-main {
+        padding: 0;
+    }
+
+    .home-img {
+        width: 230px;
+        height: 230px;
+    }
+
+    .glowing-circle .image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .home-img .glowing-circle:after {
+        width: 200px;
+        height: 200px;
+    }
+
+    .image img {
+        max-width: 115px;
+    }
+}
