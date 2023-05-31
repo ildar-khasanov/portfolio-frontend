@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CheckBox from "../common/form/CheckBox";
 import MultiSelect from "../common/form/MultiSelect";
 import RadioFeild from "../common/form/RadioFeild";
@@ -7,6 +8,24 @@ import TextFeild from "../common/form/TextFeild";
 import { validator } from "../utils/validator";
 
 const RegistrFrom = () => {
+    const history = useNavigate();
+    const registerForm = async (data) => {
+        try {
+            const res = await fetch("http://localhost:8000/auth/register", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+            const json = await res.json();
+
+            history("/login");
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -76,7 +95,7 @@ const RegistrFrom = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(data);
+        registerForm(data);
     };
 
     return (

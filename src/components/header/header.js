@@ -1,5 +1,6 @@
 import "./style.css";
 import headerPhoto from "../../img/header/header-avatar.png";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
@@ -15,9 +16,9 @@ const Header = () => {
                     {/* <div className="header__text">
                         <p>Технологии: JS, REACT</p>
                     </div> */}
-                    <a href="/projects" className="btn__portfolio">
+                    <NavLink to="/projects" className="btn__portfolio">
                         Посмотреть работы
-                    </a>
+                    </NavLink>
                 </div>
                 <div className="home-img-main">
                     <div className="home-img">

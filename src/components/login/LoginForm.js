@@ -1,15 +1,24 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 import TextFeild from "../../components/common/form/TextFeild";
 import { validator } from "../../components/utils/validator";
+import { fetchAuth, resetFeild } from "../../redux/slices/auth";
 
 const LoginForm = () => {
-    const [data, setData] = useState({ email: "", password: "" });
+    const dispatch = useDispatch();
+    const authState = useSelector((state) => state.auth);
+    const [data, setData] = useState({
+        email: "hasanov3456@yandex.ru",
+        password: "#fafjJf3",
+    });
     const [errors, setErrors] = useState({});
     const handleValueInput = (target) => {
         setData((prevState) => ({
             ...prevState,
             [target.name]: target.value,
         }));
+        dispatch(resetFeild());
     };
 
     const validateConfig = {
@@ -51,10 +60,17 @@ const LoginForm = () => {
         setErrors(isValid);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(data);
+        const dataAuth = await dispatch(fetchAuth(data));
+
+        if ("token" in dataAuth.payload) {
+            window.localStorage.setItem("token", dataAuth.payload.token);
+        }
     };
+    // if (localStorage.getItem("token")) {
+    //     return <Navigate to="/" />;
+    // }
 
     return (
         <form onSubmit={handleSubmit}>
@@ -75,7 +91,9 @@ const LoginForm = () => {
                 errors={errors.password}
                 onChange={handleValueInput}
             />
-
+            {authState.error !== "error" && (
+                <div className="text-danger mt-2">{authState.error}</div>
+            )}
             <button
                 className="btn btn-primary w-100 mt-4"
                 type="submit"
