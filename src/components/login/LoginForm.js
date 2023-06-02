@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import TextFeild from "../../components/common/form/TextFeild";
 import { validator } from "../../components/utils/validator";
-import { fetchAuth, resetFeild } from "../../redux/slices/auth";
+import { fetchAuth, resetFeild, selectedIsAuth } from "../../redux/slices/auth";
 
 const LoginForm = () => {
     const dispatch = useDispatch();
     const authState = useSelector((state) => state.auth);
+    const isAuth = useSelector(selectedIsAuth);
+    const navigate = useNavigate();
     const [data, setData] = useState({
         email: "hasanov3456@yandex.ru",
         password: "#fafjJf3",
@@ -67,10 +69,15 @@ const LoginForm = () => {
         if ("token" in dataAuth.payload) {
             window.localStorage.setItem("token", dataAuth.payload.token);
         }
+
+        if (localStorage.getItem("token")) {
+            return navigate("/");
+        }
     };
-    // if (localStorage.getItem("token")) {
-    //     return <Navigate to="/" />;
-    // }
+
+    if (localStorage.getItem("token")) {
+        return navigate("/");
+    }
 
     return (
         <form onSubmit={handleSubmit}>

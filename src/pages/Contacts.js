@@ -1,6 +1,6 @@
 const Contacts = () => {
-    const test = document.querySelector(".section");
-    console.log(test);
+    // const test = document.querySelector(".section");
+    // console.log(test);
     return (
         <main className="section">
             <div className="container">

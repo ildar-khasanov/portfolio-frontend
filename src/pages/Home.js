@@ -5,9 +5,11 @@ import { fetchAuthMe } from "../redux/slices/auth";
 
 const Home = () => {
     const dispatch = useDispatch();
-    dispatch(
-        fetchAuthMe({ email: "hasanov3456@yandex.ru", password: "#fafjJf3" })
-    );
+
+    useEffect(() => {
+        dispatch(fetchAuthMe());
+    }, []);
+
     return (
         <>
             <Header />
@@ -24,7 +26,7 @@ const Home = () => {
                         <li className="content-list__item">
                             <h2 className="title-2">Backend</h2>
                             <p>
-                                Node.JS, Express, Sequalize, Mongoose
+                                Node.JS, Express, Sequalize, Mongoose,
                                 PostgreSQL, MongoDB
                             </p>
                         </li>

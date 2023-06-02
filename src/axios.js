@@ -12,3 +12,5 @@ instanse.interceptors.request.use((config) => {
     // возращаем измененный config
     return config;
 });
+
+export default instanse;

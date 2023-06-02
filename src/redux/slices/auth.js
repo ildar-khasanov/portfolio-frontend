@@ -1,44 +1,28 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "../../axios";
 
 export const fetchAuth = createAsyncThunk(
     "auth/fetchAuth",
     async (params, { rejectWithValue }) => {
         try {
-            const res = await fetch("http://localhost:8000/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(params),
-            });
-
-            if (!res.ok) {
-                const error = await res.json();
-                throw new Error(error.message);
-            }
-
-            const { userData, token } = await res.json();
-
-            return { userData, token };
+            const { data } = await axios.post("auth/login", params);
+            return data;
         } catch (error) {
-            return rejectWithValue(error.message);
+            const { data, status } = error.response;
+            return rejectWithValue(data.message);
         }
     }
 );
 
 export const fetchAuthMe = createAsyncThunk(
-    "auth/testFetch",
+    "auth/fetchAuthMe",
     async (params, { rejectWithValue }) => {
         try {
-            const { data } = await axios.post(
-                "http://localhost:8000/auth/login",
-                params
-            );
-            console.log(data);
+            const { data } = await axios.get("/auth/me");
             return data;
         } catch (error) {
-            return rejectWithValue(error.message);
+            const { data, status } = error.response;
+            if (status === 500) return rejectWithValue(data);
         }
     }
 );
@@ -54,6 +38,10 @@ const authSlice = createSlice({
     reducers: {
         resetFeild(state) {
             state.error = null;
+        },
+        loginOut(state) {
+            state.data = null;
+            state.token = null;
         },
     },
     extraReducers: {
@@ -73,16 +61,20 @@ const authSlice = createSlice({
         },
         // fetchAuthMe
         [fetchAuthMe.pending]: (state, action) => {
-            state.status = "loadingMe";
+            state.error = null;
+            state.status = "loading";
         },
         [fetchAuthMe.fulfilled]: (state, action) => {
-            state.status = "loadedMe";
+            state.status = "loaded";
+            state.data = action.payload;
         },
         [fetchAuthMe.rejected]: (state, action) => {
-            state.status = "rejectedMe";
+            state.error = action.payload;
+            state.status = "reject";
         },
     },
 });
 
+export const selectedIsAuth = (state) => Boolean(state.auth.data);
 export const authReducer = authSlice.reducer;
-export const { resetFeild } = authSlice.actions;
+export const { resetFeild, loginOut } = authSlice.actions;

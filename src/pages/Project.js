@@ -4,16 +4,17 @@ import BtnGitHub from "../components/btnGitHub/BtnGitHub";
 
 const Project = () => {
     const { idPost } = useParams();
-    const project = projects.filter((n) => idPost == n.id);
+    const project = projects.filter((n) => n.id === Number(idPost));
+    const { title, imgBig, techology, link, gitHubLink } = project[0];
 
     return (
         <main className="section">
             <div className="container">
                 <div className="project-details">
-                    <h1 className="title-1">{project[0].title}</h1>
+                    <h1 className="title-1">{title}</h1>
 
                     <img
-                        src={project[0].imgBig}
+                        src={imgBig}
                         alt=""
                         className="project-details__cover"
                     />
@@ -21,22 +22,20 @@ const Project = () => {
                     <div className="project-details__desc">
                         <p>
                             Skills:
-                            <span> {project[0].techology.join(", ")}</span>{" "}
+                            <span> {techology.join(", ")}</span>{" "}
                         </p>
-                        {project[0].link && (
+                        {project.link && (
                             <p>
                                 Link:
-                                <a href={project[0].link} target="_blank">
+                                <a href={link} target="_blank">
                                     {" "}
-                                    {project[0].link}
+                                    {link}
                                 </a>
                             </p>
                         )}
                     </div>
 
-                    {project[0].gitHubLink && (
-                        <BtnGitHub link={project[0].gitHubLink} />
-                    )}
+                    {gitHubLink && <BtnGitHub link={gitHubLink} />}
                 </div>
             </div>
         </main>
