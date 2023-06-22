@@ -1,1 +1,8 @@
-export const techology = ["Native JS", "React", "Php", "Wordpress", "HTML/CSS"];
+export const techology = [
+    "Native JS",
+    "React",
+    "Php",
+    "Wordpress",
+    "HTML/CSS",
+    "ExpressJS",
+];

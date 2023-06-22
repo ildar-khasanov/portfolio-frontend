@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instanse = axios.create({
-    baseURL: "http://localhost:8000/",
+    baseURL: "http://92.255.109.124:4010/",
 });
 
 // когда любой запрос происходит,

@@ -24,12 +24,11 @@ const Project = () => {
                             Skills:
                             <span> {techology.join(", ")}</span>{" "}
                         </p>
-                        {project.link && (
+                        {link && (
                             <p>
-                                Link:
+                                View the project:
                                 <a href={link} target="_blank">
-                                    {" "}
-                                    {link}
+                                    {" " + link}
                                 </a>
                             </p>
                         )}
