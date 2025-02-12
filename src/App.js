@@ -18,7 +18,7 @@ function App() {
     return (
         <>
             <Provider store={store}>
-                <Router>
+                <Router basename="/portfolio-frontend">
                     <ScrollToTop />
                     <NavBar />
 
