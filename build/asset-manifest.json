@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.19326d0a.css",
+    "main.js": "/static/js/main.57f02ec6.js",
+    "static/media/04-big.jpg": "/static/media/04-big.9dc8caf822c4a4116af4.jpg",
+    "static/media/01-big.jpg": "/static/media/01-big.ecb03349664096d93b17.jpg",
+    "static/media/05-big.jpg": "/static/media/05-big.f315645c87f1dfe5c2c6.jpg",
+    "static/media/politech-pro-big.jpg": "/static/media/politech-pro-big.e1c02233e59d0817a5b4.jpg",
+    "static/media/02-big.jpg": "/static/media/02-big.55e8268286a008f0aa84.jpg",
+    "static/media/06-big.jpg": "/static/media/06-big.51b90ae43fdfcf0ab077.jpg",
+    "static/media/fast-company-big.jpg": "/static/media/fast-company-big.a89a2d53a43f532cd6f5.jpg",
+    "static/media/blog-big.jpg": "/static/media/blog-big.5de8fb56d02e47b42d66.jpg",
+    "static/media/04.jpg": "/static/media/04.da38cca11cede6d4ef43.jpg",
+    "static/media/05.jpg": "/static/media/05.497e1d12eb46a0b52271.jpg",
+    "static/media/header-avatar.png": "/static/media/header-avatar.07a0cdbce2760ee1995f.png",
+    "static/media/politech-small.jpg": "/static/media/politech-small.baef90476beca803e7dc.jpg",
+    "static/media/bouncing-balls-big.jpg": "/static/media/bouncing-balls-big.9697155b575cd8dc71f7.jpg",
+    "static/media/06.jpg": "/static/media/06.86ff2b3c4326d053ac65.jpg",
+    "static/media/sun.svg": "/static/media/sun.f8606845ee97bee21c3bc95b2dec3866.svg",
+    "static/media/moon.svg": "/static/media/moon.312bed9230c94183d589bcc499993093.svg",
+    "static/media/gitHub.svg": "/static/media/gitHub.a5541850a2a6843f34467a91657cc39d.svg",
+    "static/media/gitHub-black.svg": "/static/media/gitHub-black.879a08487a26f06ac21248a96c866696.svg",
+    "static/media/instagram.svg": "/static/media/instagram.6b0ce32a930db2eac1c21600458a8cd0.svg",
+    "static/media/vk.svg": "/static/media/vk.92c39b2c917df4fd4643503dd57a49bf.svg",
+    "static/media/twitter.svg": "/static/media/twitter.9ca7b7d7634476270a563192e3f69250.svg",
+    "static/media/eye-slash.svg": "/static/media/eye-slash.84849da0c16fde6c00098d30432c241a.svg",
+    "static/media/linkedIn.svg": "/static/media/linkedIn.55523f62797ddb51e960322dd47e5636.svg",
+    "index.html": "/index.html",
+    "static/media/eye.svg": "/static/media/eye.435abac1edb41fa4db9a6cd8ee1e6697.svg",
+    "main.19326d0a.css.map": "/static/css/main.19326d0a.css.map",
+    "main.57f02ec6.js.map": "/static/js/main.57f02ec6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19326d0a.css",
+    "static/js/main.57f02ec6.js"
+  ]
+}
